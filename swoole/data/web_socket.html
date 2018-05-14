@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>web-socket测试</h1>
+<script>
+//            var wsUrl = "ws://127.0.0.1:9052"
+//
+//            var websocket = new WebSocket(wsUrl);
+//            console.log(websocket);
+//
+//            websocket.onopen = function(evt) {
+//                console.log("connected-swoole-server");
+//                websocket.send('测试发送数据')
+//            }
+//
+//            websocket.onmessage = function (evt) { console.log('return data:'+ evt.data); }
+//
+//            websocket.onclose = function (p1) { console.log('client close ...'); }
+//
+//
+//            websocket.onerror = function (event) { console.log('error:' + event.data); }
+
+
+    var wsServer = 'ws://127.0.0.1:3031';
+    var websocket = new WebSocket(wsServer);
+    websocket.onopen = function (evt) {
+        console.log("Connected to WebSocket server.");
+    };
+
+    websocket.onclose = function (evt) {
+        console.log("Disconnected");
+    };
+
+    websocket.onmessage = function (evt) {
+        console.log('Retrieved data from server: ' + evt.data);
+    };
+
+    websocket.onerror = function (evt, e) {
+        console.log(evt);
+        console.log(e);
+        console.log('Error occured: ' + evt.data);
+    };
+
+
+</script>
+</body>
+</html>
